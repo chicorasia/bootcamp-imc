@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/main_imc_txt"
+        style="@style/titulo__vermelho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_peso_edt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/imc_title" />
+    <EditText
+        android:id="@+id/main_peso_edt"
+        android:hint="@string/peso_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        style="@style/input_style" />
+    <EditText
+        android:id="@+id/main_altura_edt"
+        android:hint="@string/altura_edt"
+        android:layout_below="@id/main_peso_edt"
+        android:layout_alignStart="@id/main_peso_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/input_style"/>
+    <Button
+        android:id="@+id/main_calcular_btn"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calcular_btn"
+        android:backgroundTint="@color/teal_700"
+        android:layout_below="@id/main_altura_edt"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

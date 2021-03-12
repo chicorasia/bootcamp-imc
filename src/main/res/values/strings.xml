@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IMC</string>
+    <string name="sou_radiobutton">Sou um Radiobutton, solitário e triste</string>
+    <string name="sou_checbox">Sou um checkbox</string>
+    <string name="peso_edt">Peso (ex. 68.5 kg)</string>
+    <string name="altura_edt">Altura (ex. 1.68 m)</string>
+    <string name="calcular_btn">Calcular</string>
+    <string name="imc_title">IMC</string>
+</resources>
