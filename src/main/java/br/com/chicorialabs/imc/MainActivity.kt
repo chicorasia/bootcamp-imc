@@ -1,14 +1,17 @@
 package br.com.chicorialabs.imc
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.Group
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import br.com.chicorialabs.imc.databinding.ActivityMainBinding
 
-const val TAG = "lifecycle_playground"
+const val TAG = "IMC"
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,13 +22,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.mainBtnGroup.visibility = Group.INVISIBLE
+        binding.mainResultado.setColorFilter(resources.getColor(R.color.indigo_dark))
 
-        binding.mainPesoEdt.doAfterTextChanged { text ->
-            if (!text.isNullOrEmpty()) {
-                binding.mainBtnGroup.visibility = Group.VISIBLE
-            } else {
-                binding.mainBtnGroup.visibility = Group.INVISIBLE
+//        binding.mainBtnGroup.visibility = Group.INVISIBLE
+//
+//        binding.mainPesoEdt.doAfterTextChanged { text ->
+//            if (!text.isNullOrEmpty()) {
+//                binding.mainBtnGroup.visibility = Group.VISIBLE
+//            } else {
+//                binding.mainBtnGroup.visibility = Group.INVISIBLE
+//            }
+//        }
+
+        binding.mainCalcularBtn.setOnClickListener {
+            Toast.makeText(this, "Clicou!", Toast.LENGTH_SHORT).show()
+            with(binding) {
+                mainResultado.setColorFilter(resources.getColor(R.color.resultado_obesidade_ii))
+                root.setBackgroundColor(resources.getColor(R.color.resultado_obesidade_ii))
             }
         }
 
