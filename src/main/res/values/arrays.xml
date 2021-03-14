@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="valores_iniciais_altura_sld">
+        <item>1.65</item>
+    </array>
+    <array name="valores_iniciais_peso_sld">
+        <item>65.0</item>
+    </array>
+
+</resources>

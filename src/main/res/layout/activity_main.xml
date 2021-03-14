@@ -20,14 +20,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="276dp" />
+        app:layout_constraintGuide_percent="0.66667" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_guide_vert_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="137dp" />
+        app:layout_constraintGuide_percent="0.33333" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/main_guide_vert_quarter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.225" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/main_guide_vert_three_quarter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_guide_hor_top"
@@ -89,10 +103,14 @@
         app:srcCompat="@drawable/area_resultado" />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_calcular_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:collapsedSize="96dp"
+        app:icon="@drawable/ic_baseline_play_arrow_24"
+        app:iconSize="64sp"
+        app:iconTint="#404050"
         app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third2"
         app:layout_constraintEnd_toEndOf="@id/main_guide_vert_two_thirds"
         app:layout_constraintStart_toStartOf="@id/main_guide_vert_third"
@@ -103,11 +121,12 @@
         android:id="@+id/main_altura_sld"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:valueFrom="1.0"
         android:valueTo="2.40"
-        app:layout_constraintEnd_toStartOf="@id/main_altura_edt"
+        app:layout_constraintEnd_toStartOf="@+id/main_guide_vert_three_quarter"
         app:layout_constraintStart_toEndOf="@id/main_rotulo_altura"
-        app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third2"
+        app:layout_constraintTop_toBottomOf="@+id/main_calcular_btn"
         app:thumbColor="@color/lime_dark" />
 
     <TextView
@@ -119,6 +138,7 @@
         app:layout_constraintEnd_toStartOf="@id/main_altura_sld"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_calcular_btn"
+        app:layout_constraintTop_toTopOf="@id/main_altura_sld"
         style="@style/rotulos_campos" />
 
     <EditText
@@ -128,6 +148,7 @@
         app:layout_constraintBaseline_toBaselineOf="@id/main_rotulo_altura"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/main_altura_sld"
+        app:layout_constraintTop_toTopOf="@id/main_altura_sld"
         android:hint="1.50"
         style="@style/edt_campo" />
 
@@ -154,6 +175,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/main_altura_sld"
         android:hint="65.0"
+        android:textAlignment="viewStart"
         style="@style/edt_campo"
         />
 
@@ -162,13 +184,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:valueFrom="30.0"
-        android:valueTo="150.0"
+        android:valueTo="200.0"
+        app:values="@array/valores_iniciais_altura_sld"
         app:layout_constraintEnd_toEndOf="@id/main_altura_sld"
         app:layout_constraintStart_toStartOf="@+id/main_altura_sld"
         app:layout_constraintTop_toBottomOf="@+id/main_altura_sld"
         app:thumbColor="@color/lime_dark" />
 
     <include
+        android:id="@+id/main_include"
         layout="@layout/resultado"
         app:layout_constraintTop_toTopOf="@id/main_guide_hor_top"
         app:layout_constraintBottom_toBottomOf="@id/main_calcular_btn"
