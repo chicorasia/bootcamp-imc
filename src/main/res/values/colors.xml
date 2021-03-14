@@ -8,10 +8,10 @@
     <color name="lime_light">#FFFFFFCE</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="resultado_abaixo_peso">#FF6C9F90</color>
-    <color name="resultado_peso_normal">#FF03658C</color>
-    <color name="resultado_excesso_peso">#FFF29E38</color>
-    <color name="resultado_obesidade_i">#FFC56B13</color>
-    <color name="resultado_obesidade_ii">#ff933618</color>
-    <color name="resultado_obesidade_morbida">#ff5F216B</color>
+    <color name="resultado_abaixo_peso">#6C9F90</color>
+    <color name="resultado_peso_normal">#03658C</color>
+    <color name="resultado_excesso_peso">#F29E38</color>
+    <color name="resultado_obesidade_i">#C56B13</color>
+    <color name="resultado_obesidade_ii">#933618</color>
+    <color name="resultado_obesidade_morbida">#5F216B</color>
 </resources>

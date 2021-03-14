@@ -1,20 +1,13 @@
-package br.com.chicorialabs.imc
+package br.com.chicorialabs.imc.ui.activity
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.annotation.ColorInt
-import androidx.constraintlayout.widget.Group
-import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
+import androidx.appcompat.app.AppCompatActivity
+import br.com.chicorialabs.imc.model.CalculadorImc
+import br.com.chicorialabs.imc.R
 import br.com.chicorialabs.imc.databinding.ActivityMainBinding
 import br.com.chicorialabs.imc.databinding.ResultadoBinding
-import java.math.BigDecimal
 import java.text.DecimalFormat
-import kotlin.math.roundToLong
 
 const val TAG = "IMC"
 
@@ -37,17 +30,24 @@ class MainActivity : AppCompatActivity() {
         // Inicialize o botão
         binding.mainCalcularBtn.setOnClickListener {
 
+            val calculadorImc = CalculadorImc()
+
             val df = DecimalFormat("#.##")
             val peso = binding.mainPesoSld.value
             val altura = binding.mainAlturaSld.value
-            val imcCalculado = calculaImc(altura = altura, peso = peso)
+            val imcCalculado = calculadorImc.calculaImc(altura = altura, peso = peso)
+            val classificacao = calculadorImc.classifica(imcCalculado)
 
             includeResultado.resultadoImc.text = df.format(imcCalculado)
-            includeResultado.resultadoClassificacao.visibility = View.VISIBLE
+            with(includeResultado.resultadoClassificacao) {
+                this.visibility = View.VISIBLE
+                this.text = classificacao.texto
+
+            }
 
             with(binding) {
-                mainResultado.setColorFilter(resources.getColor(R.color.resultado_obesidade_ii))
-                root.setBackgroundColor(resources.getColor(R.color.resultado_obesidade_ii))
+                mainResultado.setColorFilter(classificacao.cor)
+                root.setBackgroundColor(classificacao.cor)
             }
 
         }
@@ -82,6 +82,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun calculaImc(altura: Float, peso: Float) : Float = peso.div (altura * altura)
+
 
 }
