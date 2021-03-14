@@ -17,4 +17,28 @@
         <item name="android:textAlignment">center</item>
         <item name="android:layout_marginTop">16dp</item>
     </style>
+
+    <style name="rotulos_campos">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="edt_campo">
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+
+    <style name="resultado_texto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

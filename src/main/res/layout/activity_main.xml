@@ -20,14 +20,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_begin="276dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_guide_vert_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33" />
+        app:layout_constraintGuide_begin="137dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/main_guide_hor_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.083333" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_guide_hor_bottom_third"
@@ -64,10 +71,10 @@
         android:id="@+id/main_canto"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:src="@drawable/rectangle"
         android:background="@color/design_default_color_background"
+        android:src="@drawable/rectangle"
         app:layout_constraintBottom_toTopOf="@id/main_guide_hor_bottom_third"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/main_resultado"
@@ -75,30 +82,99 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/area_resultado"
-        />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/area_resultado" />
 
-    <ImageButton
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_calcular_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/round_button"
         app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third2"
         app:layout_constraintEnd_toEndOf="@id/main_guide_vert_two_thirds"
         app:layout_constraintStart_toStartOf="@id/main_guide_vert_third"
         app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third3" />
 
+    <!--    Slider de altura -->
+    <com.google.android.material.slider.Slider
+        android:id="@+id/main_altura_sld"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:valueFrom="1.0"
+        android:valueTo="2.40"
+        app:layout_constraintEnd_toStartOf="@id/main_altura_edt"
+        app:layout_constraintStart_toEndOf="@id/main_rotulo_altura"
+        app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third2"
+        app:thumbColor="@color/lime_dark" />
+
+    <TextView
+        android:id="@+id/main_rotulo_altura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altura (m)"
+        app:layout_constraintBottom_toBottomOf="@id/main_altura_sld"
+        app:layout_constraintEnd_toStartOf="@id/main_altura_sld"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_calcular_btn"
+        style="@style/rotulos_campos" />
+
+    <EditText
+        android:id="@+id/main_altura_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/main_rotulo_altura"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/main_altura_sld"
+        android:hint="1.50"
+        style="@style/edt_campo" />
 
 
-<!--    <ImageView-->
-<!--        android:id="@+id/detalhe"-->
-<!--        android:layout_width="32dp"-->
-<!--        android:layout_height="32dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:background="@color/indigo_dark"-->
-<!--        app:srcCompat="@drawable/quarter_corner" />-->
+    <!--    Slider de peso -->
+
+    <TextView
+        android:id="@+id/main_rotulo_peso"
+        style="@style/rotulos_campos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:text="Peso (kg)"
+        app:layout_constraintBottom_toBottomOf="@id/main_peso_sld"
+        app:layout_constraintEnd_toStartOf="@+id/main_peso_sld"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_altura_sld" />
+
+    <EditText
+        android:id="@+id/main_peso_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/main_rotulo_peso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/main_altura_sld"
+        android:hint="65.0"
+        style="@style/edt_campo"
+        />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/main_peso_sld"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:valueFrom="30.0"
+        android:valueTo="150.0"
+        app:layout_constraintEnd_toEndOf="@id/main_altura_sld"
+        app:layout_constraintStart_toStartOf="@+id/main_altura_sld"
+        app:layout_constraintTop_toBottomOf="@+id/main_altura_sld"
+        app:thumbColor="@color/lime_dark" />
+
+    <include
+        layout="@layout/resultado"
+        app:layout_constraintTop_toTopOf="@id/main_guide_hor_top"
+        app:layout_constraintBottom_toBottomOf="@id/main_calcular_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

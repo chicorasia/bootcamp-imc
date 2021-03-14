@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Seu IMC é:"
+        style="@style/resultado_texto" />
+
+    <TextView
+        android:id="@+id/resultado_imc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/lato_light_italic"
+        android:text="23.23"
+        android:textColor="@color/white"
+        android:textSize="84sp" />
+    <TextView
+        android:id="@+id/resultado_classificacao"
+        android:text="Peso normal"
+        android:textSize="24sp"
+        style="@style/resultado_texto"/>
+
+
+</LinearLayout>
