@@ -48,14 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="61dp" />
+        app:layout_constraintGuide_end="350dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_guide_hor_bottom_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_end="135dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_guide_hor_bottom_third2"
@@ -69,17 +69,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_begin="226dp" />
 
     <ImageView
         android:id="@+id/main_inferior"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/main_resultado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third"
-        app:srcCompat="@drawable/banda_inferior" />
+        app:layout_constraintStart_toStartOf="@+id/main_guide_vert_two_thirds"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/banda_inferior_land" />
+
 
     <ImageView
         android:id="@+id/main_canto"
@@ -87,70 +88,46 @@
         android:layout_height="32dp"
         android:background="@color/design_default_color_background"
         android:src="@drawable/rectangle"
-        app:layout_constraintBottom_toTopOf="@id/main_guide_hor_bottom_third"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_guide_vert_two_thirds" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/main_resultado"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:tint="@color/lime_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_guide_vert_two_thirds"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/area_resultado" />
-
+        app:srcCompat="@drawable/area_resultado_land" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_calcular_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="366dp"
         app:collapsedSize="96dp"
         app:icon="@drawable/ic_baseline_play_arrow_24"
         app:iconSize="64sp"
         app:iconTint="#404050"
-        app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third2"
-        app:layout_constraintEnd_toEndOf="@id/main_guide_vert_two_thirds"
-        app:layout_constraintStart_toStartOf="@id/main_guide_vert_third"
+        app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third3"
+        app:layout_constraintEnd_toStartOf="@+id/main_guide_vert_three_quarter"
+        app:layout_constraintStart_toStartOf="@+id/main_resultado"
         app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third3" />
 
     <!--    Slider de altura -->
-    <com.google.android.material.slider.Slider
-        android:id="@+id/main_altura_sld"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:valueFrom="1.0"
-        android:valueTo="2.40"
-        app:layout_constraintEnd_toStartOf="@+id/main_guide_vert_three_quarter"
-        app:layout_constraintStart_toEndOf="@id/main_rotulo_altura"
-        app:layout_constraintTop_toBottomOf="@+id/main_calcular_btn"
-        app:thumbColor="@color/lime_dark" />
-
-    <TextView
-        android:id="@+id/main_rotulo_altura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Altura (m)"
-        app:layout_constraintBottom_toBottomOf="@id/main_altura_sld"
-        app:layout_constraintEnd_toStartOf="@id/main_altura_sld"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_calcular_btn"
-        app:layout_constraintTop_toTopOf="@id/main_altura_sld"
-        style="@style/rotulos_campos" />
 
     <EditText
         android:id="@+id/main_altura_edt"
+        style="@style/edt_campo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/main_rotulo_altura"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/main_altura_sld"
-        app:layout_constraintTop_toTopOf="@id/main_altura_sld"
         android:hint="1.50"
-        style="@style/edt_campo" />
+        app:layout_constraintBottom_toTopOf="@+id/main_altura_sld"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <!--    Slider de peso -->
@@ -160,24 +137,22 @@
         style="@style/rotulos_campos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
         android:text="Peso (kg)"
-        app:layout_constraintBottom_toBottomOf="@id/main_peso_sld"
-        app:layout_constraintEnd_toStartOf="@+id/main_peso_sld"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_altura_sld" />
+        app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third2"
+        app:layout_constraintEnd_toStartOf="@+id/main_peso_edt"
+        app:layout_constraintStart_toStartOf="@+id/main_guide_vert_two_thirds"
+        app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third" />
 
     <EditText
         android:id="@+id/main_peso_edt"
+        style="@style/edt_campo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/main_rotulo_peso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/main_altura_sld"
         android:hint="65.0"
         android:textAlignment="viewStart"
-        style="@style/edt_campo"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/main_guide_hor_bottom_third2"
+        app:layout_constraintEnd_toEndOf="@+id/main_altura_edt"
+        app:layout_constraintTop_toTopOf="@+id/main_guide_hor_bottom_third" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/main_peso_sld"
@@ -185,11 +160,36 @@
         android:layout_height="wrap_content"
         android:valueFrom="30.0"
         android:valueTo="200.0"
-        app:values="@array/valores_iniciais_altura_sld"
         app:layout_constraintEnd_toEndOf="@id/main_altura_sld"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/main_altura_sld"
-        app:layout_constraintTop_toBottomOf="@+id/main_altura_sld"
+        app:layout_constraintTop_toBottomOf="@+id/main_rotulo_peso"
+        app:thumbColor="@color/lime_dark"
+        app:values="@array/valores_iniciais_altura_sld" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/main_altura_sld"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:valueFrom="1.0"
+        android:valueTo="2.40"
+        app:layout_constraintBottom_toTopOf="@+id/main_calcular_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/main_guide_vert_two_thirds"
         app:thumbColor="@color/lime_dark" />
+
+    <TextView
+        android:id="@+id/main_rotulo_altura"
+        style="@style/rotulos_campos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altura (m)"
+        app:layout_constraintBottom_toTopOf="@+id/main_altura_sld"
+        app:layout_constraintEnd_toStartOf="@+id/main_altura_edt"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="@+id/main_guide_vert_two_thirds" />
 
     <include
         android:id="@+id/main_include"
@@ -197,10 +197,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="@id/main_guide_hor_top"
-        app:layout_constraintBottom_toTopOf="@id/main_calcular_btn"
-        app:layout_constraintStart_toStartOf="@id/main_resultado"
-        app:layout_constraintEnd_toEndOf="@id/main_resultado"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/main_resultado"
+        app:layout_constraintEnd_toStartOf="@+id/main_calcular_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

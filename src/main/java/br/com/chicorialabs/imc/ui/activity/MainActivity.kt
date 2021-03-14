@@ -1,5 +1,8 @@
 package br.com.chicorialabs.imc.ui.activity
 
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -21,13 +24,17 @@ class MainActivity : AppCompatActivity() {
         val includeResultado = binding.mainInclude
         setContentView(binding.root)
 
-        // Faça o setup inicial da tela
         aplicaValoresPadraoNosCampos()
         aplicaValoresPadraoNosResultados(includeResultado)
         inicializaSliders()
+        inicializaBtnCalcular(includeResultado)
 
+    }
 
-        // Inicialize o botão
+    private fun inicializaBtnCalcular(includeResultado: ResultadoBinding) {
+
+        var ultimaCor = R.color.indigo_900
+
         binding.mainCalcularBtn.setOnClickListener {
 
             val calculadorImc = CalculadorImc()
@@ -46,12 +53,24 @@ class MainActivity : AppCompatActivity() {
             }
 
             with(binding) {
-                mainResultado.setColorFilter(classificacao.cor)
-                root.setBackgroundColor(classificacao.cor)
+
+                mainResultado.run {
+                    val corInicial = ultimaCor
+                    val corFinal = (resources.getColor(classificacao.cor))
+                    ultimaCor = corFinal
+                    val colorAnimation = ValueAnimator.ofObject(
+                            ArgbEvaluator(), corInicial, corFinal)
+                    colorAnimation.duration = 1000
+                    colorAnimation.addUpdateListener {
+                        this.setColorFilter(it.animatedValue as Int,
+                                PorterDuff.Mode.MULTIPLY)
+                        root.setBackgroundColor(it.animatedValue as Int)
+                    }
+                    colorAnimation.start()
+                }
             }
 
         }
-
     }
 
     private fun inicializaSliders() {
